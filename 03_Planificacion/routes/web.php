@@ -35,3 +35,4 @@ Route::resource('/clientes', App\Http\Controllers\ClienteController::class);
 Route::resource('/proyectos', App\Http\Controllers\ProyectoController::class);
 Route::resource('/tareas', App\Http\Controllers\TareaController::class);
 Route::resource('/empleados', App\Http\Controllers\EmpleadoController::class);
+Route::resource('/users', App\Http\Controllers\UserController::class);

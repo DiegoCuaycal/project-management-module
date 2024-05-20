@@ -53,7 +53,19 @@
         <small class="form-hint">empleado <b>contraseña</b> instruction.</small>
     </div>
 </div>
-
+<div class="form-group mb-3">
+    <label class="form-label">{{ Form::label('roles', 'Roles') }}</label>
+    <div>
+        @foreach($roles as $role)
+            <div class="form-check">
+                {{ Form::checkbox('roles[]', $role->id, null, ['class' => 'form-check-input' . ($errors->has('roles') ? ' is-invalid' : '')]) }}
+                {{ Form::label('roles[]', $role->nombre, ['class' => 'form-check-label']) }}
+            </div>
+        @endforeach
+        {!! $errors->first('roles', '<div class="invalid-feedback">:message</div>') !!}
+        <small class="form-hint">Seleccione uno o más roles.</small>
+    </div>
+</div>
     <div class="form-footer">
         <div class="text-end">
             <div class="d-flex">

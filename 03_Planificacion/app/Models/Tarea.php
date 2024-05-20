@@ -22,4 +22,9 @@ class Tarea extends Model
         //Relation uno a muchos (Inversa)
         return $this->belongsToMany('App\Models\Empleado');
     }
+    public function Usera()
+    {
+        //Relation uno a muchos (Inversa)
+        return $this->belongsToMany('App\Models\User');
+    }
 }

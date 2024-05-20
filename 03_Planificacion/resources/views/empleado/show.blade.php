@@ -10,7 +10,7 @@
                 <div class="col">
                     <!-- Page pre-title -->
                     <div class="page-pretitle">
-                        View
+                        Vista
                     </div>
                     <h2 class="page-title">
                         {{ __('Empleado ') }}
@@ -21,14 +21,14 @@
                     <div class="btn-list">
                         <a href="{{ route('empleados.index') }}" class="btn btn-primary d-none d-sm-inline-block">
                             <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                 stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                <line x1="12" y1="5" x2="12" y2="19"/>
-                                <line x1="5" y1="12" x2="19" y2="12"/>
-                            </svg>
-                            Empleado List
+                            {{-- <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <line x1="12" y1="5" x2="12" y2="19" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg> --}}
+                            Empleados
                         </a>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
         <div class="container-xl">
             <div class="row row-deck row-cards">
                 <div class="col-12">
-                    @if(config('tablar','display_alert'))
+                    @if (config('tablar', 'display_alert'))
                         @include('tablar::common.alert')
                     @endif
                     <div class="card">
@@ -48,31 +48,39 @@
                             <h3 class="card-title">Empleado Details</h3>
                         </div>
                         <div class="card-body">
-                            
-<div class="form-group">
-<strong>Nombre:</strong>
-{{ $empleado->nombre }}
-</div>
-<div class="form-group">
-<strong>Apellido:</strong>
-{{ $empleado->apellido }}
-</div>
-<div class="form-group">
-<strong>Telefono:</strong>
-{{ $empleado->telefono }}
-</div>
-<div class="form-group">
-<strong>Email:</strong>
-{{ $empleado->email }}
-</div>
-<div class="form-group">
-<strong>Usuario:</strong>
-{{ $empleado->usuario }}
-</div>
-<div class="form-group">
-<strong>Contraseña:</strong>
-{{ $empleado->contraseña }}
-</div>
+
+                            <div class="form-group">
+                                <strong>Nombre:</strong>
+                                {{ $empleado->nombre }}
+                            </div>
+                            <div class="form-group">
+                                <strong>Apellido:</strong>
+                                {{ $empleado->apellido }}
+                            </div>
+                            <div class="form-group">
+                                <strong>Telefono:</strong>
+                                {{ $empleado->telefono }}
+                            </div>
+                            <div class="form-group">
+                                <strong>Email:</strong>
+                                {{ $empleado->email }}
+                            </div>
+                            <div class="form-group">
+                                <strong>Usuario:</strong>
+                                {{ $empleado->usuario }}
+                            </div>
+                            <div class="form-group">
+                                <strong>Contraseña:</strong>
+                                Contraseña oculta por seguridad
+                            </div>
+                            <div class="form-group">
+                                <strong>Roles:</strong>
+                                <ul>
+                                    @foreach($empleado->roles as $role)
+                                        <li>{{ $role->nombre }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
 
                         </div>
                     </div>
@@ -81,5 +89,3 @@
         </div>
     </div>
 @endsection
-
-

@@ -181,6 +181,12 @@ return [
         ],
 
         [
+            'text' => 'Usuarios',
+            'icon' => 'ti ti-user',
+            'url' => '/users'
+        ],
+
+        [
             'text' => 'Roles',
             'icon' => 'ti ti-user',
             'url' => '/roles'

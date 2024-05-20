@@ -17,4 +17,8 @@ class Role extends Model
     public function Empleados(){
         return $this->belongsToMany('App\Models\Empleado');
     }
+    //Relation muchos a muchos
+    public function Users(){
+        return $this->belongsToMany('App\Models\User');
+    }
 }

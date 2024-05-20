@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreEmpleado;
 use App\Models\Empleado;
+//Importar la clase Role
+use App\Models\Role;
 use Illuminate\Http\Request;
 
 /**
@@ -31,9 +33,10 @@ class EmpleadoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
+        $roles = Role::all();
         $empleado = new Empleado();
-        return view('empleado.create', compact('empleado'));
+        return view('empleado.create', compact('empleado','roles'));
     }
 
     /**
@@ -54,6 +57,9 @@ class EmpleadoController extends Controller
         $empleado->usuario = $request->usuario;
         $empleado->contraseña = $request->contraseña;
         $empleado->save();
+        // Asociar los roles seleccionados
+        $empleado->roles()->sync($request->roles);
+        
         return redirect()->route('empleados.index')
             ->with('success', 'Empleado created successfully.');
     }
