@@ -1,9 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
-
+use App\Http\Requests\StoreUser;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class UserController
@@ -18,10 +19,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(10);
+        // Cargar usuarios con sus roles utilizando la carga ansiosa (eager loading)
+        $users = User::with('roles')->paginate(10);
 
-        return view('user.index', compact('users'))
-            ->with('i', (request()->input('page', 1) - 1) * $users->perPage());
+        // Pasar los usuarios a la vista
+        return view('user.index', compact('users'));
     }
 
     /**
@@ -31,8 +33,9 @@ class UserController extends Controller
      */
     public function create()
     {
+        $roles = Role::all();
         $user = new User();
-        return view('user.create', compact('user'));
+        return view('user.create', compact('user', 'roles'));
     }
 
     /**
@@ -41,11 +44,19 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUser $request)
     {
-        request()->validate(User::$rules);
+        // request()->validate(User::$rules);
+        // $user = User::create($request->all());
 
-        $user = User::create($request->all());
+        $user = new User();
+        $user->name  = $request->name;
+        $user->email  = $request->email;
+        $user->password  = $request->name;
+        $user->save();
+
+        // Asociar los roles seleccionados
+        $user->roles()->sync($request->roles);
 
         return redirect()->route('users.index')
             ->with('success', 'User created successfully.');
@@ -72,9 +83,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        $roles = Role::all();
         $user = User::find($id);
 
-        return view('user.edit', compact('user'));
+        return view('user.edit', compact('user', 'roles'));
     }
 
     /**
@@ -86,9 +98,12 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        request()->validate(User::$rules);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->save();
 
-        $user->update($request->all());
+        // Actualizar los roles del usuario
+        $user->roles()->sync($request->roles);
 
         return redirect()->route('users.index')
             ->with('success', 'User updated successfully');
@@ -105,5 +120,14 @@ class UserController extends Controller
 
         return redirect()->route('users.index')
             ->with('success', 'User deleted successfully');
+    }
+    public function showProfile()
+    {
+        $user = Auth::user();
+        if (!$user) {
+            return redirect()->route('login')->with('error', 'You need to login to see this page.');
+        }
+
+        return view('user.profile', compact('user'));
     }
 }

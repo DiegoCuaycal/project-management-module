@@ -14,9 +14,9 @@ class Role extends Model
         // Otros campos y reglas de validación
     ];
     //Relation muchos a muchos
-    public function Empleados(){
-        return $this->belongsToMany('App\Models\Empleado');
-    }
+    // public function Empleados(){
+    //     return $this->belongsToMany('App\Models\Empleado');
+    // }
     //Relation muchos a muchos
     public function Users(){
         return $this->belongsToMany('App\Models\User');

@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\EntrevistaController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\SettingsController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,3 +38,6 @@ Route::resource('/proyectos', App\Http\Controllers\ProyectoController::class);
 Route::resource('/tareas', App\Http\Controllers\TareaController::class);
 Route::resource('/empleados', App\Http\Controllers\EmpleadoController::class);
 Route::resource('/users', App\Http\Controllers\UserController::class);
+
+Route::get('/profile', [UserController::class, 'showProfile'])->name('profile');
+Route::get('/settings', [SettingsController::class, 'index'])->name('settings');

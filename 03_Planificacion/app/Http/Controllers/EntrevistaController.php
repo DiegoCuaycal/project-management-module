@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreEntrevista;
 use App\Models\Entrevista;
+use App\Models\Cliente;
 use Illuminate\Http\Request;
 
 /**
@@ -32,8 +33,9 @@ class EntrevistaController extends Controller
      */
     public function create()
     {
+        $clientes = Cliente::all();
         $entrevista = new Entrevista();
-        return view('entrevista.create', compact('entrevista'));
+        return view('entrevista.create', compact('entrevista','clientes'));
     }
 
     /**
@@ -51,6 +53,10 @@ class EntrevistaController extends Controller
         $entrevista->fecha  = $request->fecha;
         $entrevista->cliente_id = $request->cliente_id;
         $entrevista->save();
+
+        // Asociar los cientes seleccionados
+        // $entrevista->clientes()->sync($request->clientes);
+
         return redirect()->route('entrevistas.index')
             ->with('success', 'Entrevista created successfully.');
     }
@@ -77,8 +83,8 @@ class EntrevistaController extends Controller
     public function edit($id)
     {
         $entrevista = Entrevista::find($id);
-
-        return view('entrevista.edit', compact('entrevista'));
+        $clientes = Cliente::all(); // Obtenemos todos los clientes
+        return view('entrevista.edit', compact('entrevista','clientes'));
     }
 
     /**

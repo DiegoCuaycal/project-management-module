@@ -23,9 +23,9 @@
                     <div class="mb-2">
                         <label class="form-label">
                             Password
-                            <span class="form-label-description">
+                            {{-- <span class="form-label-description">
                                 <a href="{{ route('password.request') }}">I forgot password</a>
-                            </span>
+                            </span> --}}
                         </label>
                         <div class="input-group input-group-flat">
                             <input type="password" name="password"
@@ -90,7 +90,7 @@
         </div>
         @if (Route::has('register'))
             <div class="text-center text-muted mt-3">
-                No tienes una cuenta aun? <a href="{{ route('register') }}" tabindex="-1">Registrarse</a>
+                No tienes una cuenta aún? <a href="{{ route('register') }}" tabindex="-1">Registrarse</a>
             </div>
         @endif
     </div>

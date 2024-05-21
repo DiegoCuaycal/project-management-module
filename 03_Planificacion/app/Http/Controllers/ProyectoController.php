@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProyecto;
 use App\Models\Proyecto;
+use App\Models\Cliente;
 use Illuminate\Http\Request;
 
 /**
@@ -32,8 +33,9 @@ class ProyectoController extends Controller
      */
     public function create()
     {
+        $clientes = Cliente::all();
         $proyecto = new Proyecto();
-        return view('proyecto.create', compact('proyecto'));
+        return view('proyecto.create', compact('proyecto','clientes'));
     }
 
     /**
@@ -83,8 +85,8 @@ class ProyectoController extends Controller
     public function edit($id)
     {
         $proyecto = Proyecto::find($id);
-
-        return view('proyecto.edit', compact('proyecto'));
+        $clientes = Cliente::all();
+        return view('proyecto.edit', compact('proyecto','clientes'));
     }
 
     /**
@@ -102,8 +104,8 @@ class ProyectoController extends Controller
         $proyecto->estado  = $request->estado;
         $proyecto->fechaInicio = $request->fechaInicio;
         $proyecto->fechaFin = $request->fechaFin;
-        $proyecto->requisitosFuncionales = $request->requisitosFuncionales;
-        $proyecto->requisitosNoFuncionales = $request->requisitosNoFuncionales;
+        $proyecto->requisitosFuncionales = $request->requisitosFuncionales??'';
+        $proyecto->requisitosNoFuncionales = $request->requisitosNoFuncionales??'';
         $proyecto->avance = $request->avance;
         $proyecto->cliente_id = $request->cliente_id;
         $proyecto->save();

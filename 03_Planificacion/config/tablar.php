@@ -118,8 +118,8 @@ return [
     'register_url' => 'register',
     'password_reset_url' => 'password.request',
     'password_email_url' => 'password.email',
-    'profile_url' => false,
-    'setting_url' => false,
+    'profile_url' => 'profile',
+    'setting_url' => 'settings',
 
     /*
     |--------------------------------------------------------------------------
@@ -174,11 +174,11 @@ return [
             'url' => '/tareas'
         ],
 
-        [
-            'text' => 'Empleados',
-            'icon' => 'ti ti-user',
-            'url' => '/empleados'
-        ],
+        // [
+        //     'text' => 'Empleados',
+        //     'icon' => 'ti ti-user',
+        //     'url' => '/empleados'
+        // ],
 
         [
             'text' => 'Usuarios',
