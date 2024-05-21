@@ -33,6 +33,10 @@
 <div class="form-footer">
     <div class="text-end">
         <div class="d-flex">
+<<<<<<< HEAD
+=======
+            
+>>>>>>> 72b7962258bd8dbd71d9d2de0fe7810f6b99d526
             <a href="{{ route('entrevistas.index') }}" class="btn btn-danger">Cancel</a>
             <button type="submit" class="btn btn-primary ms-auto ajax-submit">Submit</button>
         </div>

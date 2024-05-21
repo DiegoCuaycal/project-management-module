@@ -97,7 +97,11 @@
 <div class="form-footer">
     <div class="text-end">
         <div class="d-flex">
+<<<<<<< HEAD
             <a href="{{ route('proyectos.index') }}" class="btn btn-danger">Cancel</a>
+=======
+            <a href="{{ route('proyectos.index') }}"class="btn btn-danger">Cancel</a>
+>>>>>>> 72b7962258bd8dbd71d9d2de0fe7810f6b99d526
             <button type="submit" class="btn btn-primary ms-auto ajax-submit">Submit</button>
         </div>
     </div>
