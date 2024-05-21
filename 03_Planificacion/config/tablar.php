@@ -42,7 +42,7 @@ return [
     'auth_logo' => [
         'enabled' => true,
         'img' => [
-            'path' => 'assets/Logo3.png',
+            'path' => 'assets/Logo.png',
             'alt' => 'Auth Logo',
             'class' => 'custom-auth-logo',
             // 'width' => 100,

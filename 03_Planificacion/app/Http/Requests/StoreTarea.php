@@ -26,7 +26,7 @@ class StoreTarea extends FormRequest
             'nombre'=>'required',
             'fechainicio'=>'required',
             'fechafin'=>'required',
-            'avance'=>'required',
+            'avance'=>'nullable|numeric|min:0|max:100',
         ];
     }
 }
