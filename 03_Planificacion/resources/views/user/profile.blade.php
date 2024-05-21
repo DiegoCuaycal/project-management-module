@@ -19,7 +19,7 @@
             </table>
         </div>
         <div class="card-footer">
-            <a href="#" class="btn btn-primary">Editar Perfil</a>
+            <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary">Editar Perfil</a>
         </div>
     </div>
 </div>
