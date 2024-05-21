@@ -48,7 +48,6 @@
                             <h3 class="card-title">User Details</h3>
                         </div>
                         <div class="card-body">
-
                             <div class="form-group">
                                 <strong>Name:</strong>
                                 {{ $user->name }}
@@ -57,7 +56,6 @@
                                 <strong>Email:</strong>
                                 {{ $user->email }}
                             </div>
-
                             <div class="form-group">
                                 <strong>Roles:</strong>
                                 @foreach ($user->roles as $role)
@@ -67,22 +65,10 @@
                                     @endif
                                 @endforeach
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-@endsection
-
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <h1>Perfil de Usuario</h1>
-    <p><strong>Nombre:</strong> {{ $user->name }}</p>
-    <p><strong>Email:</strong> {{ $user->email }}</p>
-    <!-- Aquí puedes añadir más campos que deseas mostrar -->
-</div>
 @endsection

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTarea;
 use App\Models\Tarea;
+use App\Models\Proyecto;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 /**
@@ -32,8 +34,10 @@ class TareaController extends Controller
      */
     public function create()
     {
+        $proyectos = Proyecto::all();
+        $users = User::all();
         $tarea = new Tarea();
-        return view('tarea.create', compact('tarea'));
+        return view('tarea.create', compact('tarea','proyectos','users'));
     }
 
     /**
@@ -67,7 +71,7 @@ class TareaController extends Controller
     public function show($id)
     {
         $tarea = Tarea::find($id);
-
+        
         return view('tarea.show', compact('tarea'));
     }
 
@@ -80,8 +84,9 @@ class TareaController extends Controller
     public function edit($id)
     {
         $tarea = Tarea::find($id);
-
-        return view('tarea.edit', compact('tarea'));
+        $users = User::all();
+        $proyectos = Proyecto::all();
+        return view('tarea.edit', compact('tarea','proyectos','users'));
     }
 
     /**
