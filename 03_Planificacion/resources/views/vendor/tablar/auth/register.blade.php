@@ -30,11 +30,10 @@
                 <div class="mb-3">
                     <label class="form-label">Password</label>
                     <div class="input-group input-group-flat">
-                        <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"
-                            placeholder="Password" autocomplete="off">
+                        <input type="password" name="password" id="password"
+                            class="form-control @error('password') is-invalid @enderror" placeholder="Password" autocomplete="off">
                         <span class="input-group-text">
-                            <a href="#" class="link-secondary" title="Show password"
-                                data-bs-toggle="tooltip"><!-- Download SVG icon from http://tabler-icons.io/i/eye -->
+                            <a href="#" class="link-secondary" title="Show password" id="toggle-password">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                     stroke-linecap="round" stroke-linejoin="round">
@@ -54,12 +53,11 @@
                 <div class="mb-3">
                     <label class="form-label">Confirm Password</label>
                     <div class="input-group input-group-flat">
-                        <input type="password" name="password_confirmation"
+                        <input type="password" name="password_confirmation" id="password_confirmation"
                             class="form-control @error('password_confirmation') is-invalid @enderror" placeholder="Password"
                             autocomplete="off">
                         <span class="input-group-text">
-                            <a href="#" class="link-secondary" title="Show password"
-                                data-bs-toggle="tooltip"><!-- Download SVG icon from http://tabler-icons.io/i/eye -->
+                            <a href="#" class="link-secondary" title="Show password" id="toggle-password-confirmation">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                     stroke-linecap="round" stroke-linejoin="round">
@@ -91,4 +89,28 @@
             Already have account? <a href="{{ route('login') }}" tabindex="-1">Sign in</a>
         </div>
     </div>
+
+    <script>
+        document.getElementById('toggle-password').addEventListener('click', function (e) {
+            e.preventDefault();
+            var passwordInput = document.getElementById('password');
+            var icon = this.querySelector('svg');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+            }
+        });
+
+        document.getElementById('toggle-password-confirmation').addEventListener('click', function (e) {
+            e.preventDefault();
+            var passwordInput = document.getElementById('password_confirmation');
+            var icon = this.querySelector('svg');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+            }
+        });
+    </script>
 @endsection
