@@ -1,0 +1,12 @@
+.home-title {
+    font-size: 3rem; /* Ajusta este valor según tus necesidades */
+    font-weight: bold;
+}
+
+.home-subtitle {
+    font-size: 1.5rem; /* Ajusta este valor según tus necesidades */
+}
+
+.footer .container {
+    text-align: center;
+}
