@@ -48,26 +48,23 @@
                             <h3 class="card-title">Detalles Entrevista</h3>
                         </div>
                         <div class="card-body">
-
-                            <div class="form-group">
-                                <strong>Registro Datos:</strong>
-                                <textarea class="form-control" rows="5" readonly style="width: 100%;">
-                                    {{$entrevista->registroDatos}}
-                                </textarea>
-                            </div>
-                            <div class="form-group">
-                                <strong>Fecha:</strong>
-                                {{ $entrevista->fecha }}
-                            </div>
-                            <div class="form-group">
-                                <strong>Nombre Cliente:</strong>
-                                @if ($entrevista->cliente)
-                                    {{ $entrevista->cliente->nombre }} {{ $entrevista->cliente->apellido }}
-                                @else
-                                    No asignado
-                                @endif
-                            </div>
-
+                            <form>
+                                <div class="form-group">
+                                    <label for="registroDatos">Registro Datos:</label>
+                                    <textarea id="registroDatos" class="form-control" rows="5" readonly>{{ $entrevista->registroDatos }}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="fecha">Fecha:</label>
+                                    <input type="text" id="fecha" class="form-control" value="{{ $entrevista->fecha }}" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cliente">Nombre Cliente:</label>
+                                    <input type="text" id="cliente" class="form-control" value="{{ $entrevista->cliente ? $entrevista->cliente->nombre . ' ' . $entrevista->cliente->apellido : 'No asignado' }}" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <a href="{{ route('entrevistas.index') }}" class="btn btn-secondary">Back</a>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

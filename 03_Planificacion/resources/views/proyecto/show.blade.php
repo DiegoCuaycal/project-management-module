@@ -38,50 +38,53 @@
     <!-- Page body -->
     <div class="page-body">
         <div class="container-xl">
+            @if(config('tablar','display_alert'))
+                @include('tablar::common.alert')
+            @endif
             <div class="row row-deck row-cards">
                 <div class="col-12">
-                    @if(config('tablar','display_alert'))
-                        @include('tablar::common.alert')
-                    @endif
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Proyecto Details</h3>
                         </div>
                         <div class="card-body">
-                            
-<div class="form-group">
-<strong>Nombre:</strong>
-{{ $proyecto->nombre }}
-</div>
-<div class="form-group">
-<strong>Estado:</strong>
-{{ $proyecto->estado }}
-</div>
-<div class="form-group">
-<strong>Fechainicio:</strong>
-{{ $proyecto->fechaInicio }}
-</div>
-<div class="form-group">
-<strong>Fechafin:</strong>
-{{ $proyecto->fechaFin }}
-</div>
-<div class="form-group">
-<strong>Requisitosfuncionales:</strong>
-{{ $proyecto->requisitosFuncionales }}
-</div>
-<div class="form-group">
-<strong>Requisitosnofuncionales:</strong>
-{{ $proyecto->requisitosNoFuncionales }}
-</div>
-<div class="form-group">
-<strong>Avance:</strong>
-{{ $proyecto->avance }}
-</div>
-<div class="form-group">
-<strong>Cliente Id:</strong>
-{{ $proyecto->cliente_id }}
-</div>
-
+                            <form>
+                                <div class="form-group">
+                                    <label for="nombre">Nombre:</label>
+                                    <input type="text" id="nombre" class="form-control" value="{{ $proyecto->nombre }}" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="estado">Estado:</label>
+                                    <input type="text" id="estado" class="form-control" value="{{ $proyecto->estado }}" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="fechaInicio">Fecha Inicio:</label>
+                                    <input type="text" id="fechaInicio" class="form-control" value="{{ $proyecto->fechaInicio }}" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="fechaFin">Fecha Fin:</label>
+                                    <input type="text" id="fechaFin" class="form-control" value="{{ $proyecto->fechaFin }}" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="requisitosFuncionales">Requisitos Funcionales:</label>
+                                    <textarea id="requisitosFuncionales" class="form-control" rows="3" readonly>{{ $proyecto->requisitosFuncionales }}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="requisitosNoFuncionales">Requisitos No Funcionales:</label>
+                                    <textarea id="requisitosNoFuncionales" class="form-control" rows="3" readonly>{{ $proyecto->requisitosNoFuncionales }}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="avance">Avance:</label>
+                                    <input type="text" id="avance" class="form-control" value="{{ $proyecto->avance }}" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cliente_id">Cliente ID:</label>
+                                    <input type="text" id="cliente_id" class="form-control" value="{{ $proyecto->cliente_id }}" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <a href="{{ route('proyectos.index') }}" class="btn btn-secondary">Back</a>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -89,5 +92,5 @@
         </div>
     </div>
 @endsection
-
+ 
 
