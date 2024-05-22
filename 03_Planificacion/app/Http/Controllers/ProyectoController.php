@@ -18,13 +18,21 @@ class ProyectoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $proyectos = Proyecto::paginate(10);
-
+        // Obtener el término de búsqueda ingresado por el usuario
+        $searchTerm = $request->input('search');
+    
+        // Cargar proyectos
+        $proyectos = Proyecto::where('nombre', 'like', "%$searchTerm%") // Filtrar por nombre de proyecto
+            ->orWhere('id', 'like', "%$searchTerm%")  // Filtrar por id de proyecto
+            ->paginate(10);
+    
+        // Pasar los proyectos a la vista
         return view('proyecto.index', compact('proyectos'))
             ->with('i', (request()->input('page', 1) - 1) * $proyectos->perPage());
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -35,7 +43,7 @@ class ProyectoController extends Controller
     {
         $clientes = Cliente::all();
         $proyecto = new Proyecto();
-        return view('proyecto.create', compact('proyecto','clientes'));
+        return view('proyecto.create', compact('proyecto', 'clientes'));
     }
 
     /**
@@ -86,7 +94,7 @@ class ProyectoController extends Controller
     {
         $proyecto = Proyecto::find($id);
         $clientes = Cliente::all();
-        return view('proyecto.edit', compact('proyecto','clientes'));
+        return view('proyecto.edit', compact('proyecto', 'clientes'));
     }
 
     /**
@@ -104,8 +112,8 @@ class ProyectoController extends Controller
         $proyecto->estado  = $request->estado;
         $proyecto->fechaInicio = $request->fechaInicio;
         $proyecto->fechaFin = $request->fechaFin;
-        $proyecto->requisitosFuncionales = $request->requisitosFuncionales??'';
-        $proyecto->requisitosNoFuncionales = $request->requisitosNoFuncionales??'';
+        $proyecto->requisitosFuncionales = $request->requisitosFuncionales ?? '';
+        $proyecto->requisitosNoFuncionales = $request->requisitosNoFuncionales ?? '';
         $proyecto->avance = $request->avance;
         $proyecto->cliente_id = $request->cliente_id;
         $proyecto->save();

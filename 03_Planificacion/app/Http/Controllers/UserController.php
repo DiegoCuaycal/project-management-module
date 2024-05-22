@@ -16,7 +16,8 @@ class UserController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */
+    */
+    /*
     public function index()
     {
         // Cargar usuarios con sus roles utilizando la carga ansiosa (eager loading)
@@ -25,6 +26,24 @@ class UserController extends Controller
         // Pasar los usuarios a la vista
         return view('user.index', compact('users'));
     }
+     */
+
+    public function index(Request $request)
+    {
+        // Obtener el término de búsqueda ingresado por el usuario
+        $searchTerm = $request->input('search');
+    
+        // Cargar usuarios con sus roles utilizando la carga ansiosa (eager loading)
+        $users = User::with('roles')
+            ->where('name', 'like', "%$searchTerm%") //Filtrar por nombre
+            ->orWhere('id', 'like', "%$searchTerm%")  // Filtrar por id
+            ->paginate(10);
+    
+        // Pasar los usuarios a la vista
+        return view('user.index', compact('users'));
+    }
+    
+
 
     /**
      * Show the form for creating a new resource.

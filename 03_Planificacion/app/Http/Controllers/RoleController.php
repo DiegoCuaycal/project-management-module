@@ -17,10 +17,19 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $roles = Role::paginate(10);
 
+        // Obtener el término de búsqueda ingresado por el usuario
+        $searchTerm = $request->input('search');
+
+        // Cargar roles
+        $roles = Role::where('nombre', 'like', "%$searchTerm%")
+            ->orWhere('id', 'like', "%$searchTerm%")
+            ->paginate(10);
+
+        // Pasar los roles a la vista
         return view('role.index', compact('roles'))
             ->with('i', (request()->input('page', 1) - 1) * $roles->perPage());
     }
@@ -47,7 +56,7 @@ class RoleController extends Controller
         // request()->validate(Role::$rules);
         $role = new Role();
         $role->nombre = $request->nombre;
-        $role->Descripcion  = $request->Descripcion ;
+        $role->Descripcion  = $request->Descripcion;
         $role->save();
         // $role = Role::create($request->all());
 
@@ -94,7 +103,7 @@ class RoleController extends Controller
         // $role->update($request->all());
 
         $role->nombre = $request->nombre;
-        $role->Descripcion  = $request->Descripcion ;
+        $role->Descripcion  = $request->Descripcion;
         $role->save();
         return redirect()->route('roles.index')
             ->with('success', 'Role updated successfully');

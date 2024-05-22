@@ -18,14 +18,20 @@ class EntrevistaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $entrevistas = Entrevista::paginate(10);
+        // Obtener el término de búsqueda ingresado por el usuario
+        $searchTerm = $request->input('search');
 
+        // Cargar entrevistas
+        $entrevistas = Entrevista::where('registroDatos', 'like', "%$searchTerm%") // Filtrar por registro de datos
+            ->orWhere('id', 'like', "%$searchTerm%")  // Filtrar por ID de entrevista
+            ->paginate(10);
+
+        // Pasar las entrevistas a la vista
         return view('entrevista.index', compact('entrevistas'))
             ->with('i', (request()->input('page', 1) - 1) * $entrevistas->perPage());
     }
-
     /**
      * Show the form for creating a new resource.
      *

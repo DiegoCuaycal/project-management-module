@@ -60,11 +60,15 @@
                                     entries
                                 </div>
                                 <div class="ms-auto text-muted">
-                                    Search:
-                                    <div class="ms-2 d-inline-block">
-                                        <input type="text" class="form-control form-control-sm"
-                                            aria-label="Search invoice">
-                                    </div>
+                                    <form action="{{ route('proyectos.index') }}" method="GET">
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" placeholder="Buscar proyecto"
+                                                name="search">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="submit">Buscar</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

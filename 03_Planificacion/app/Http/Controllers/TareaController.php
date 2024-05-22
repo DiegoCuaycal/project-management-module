@@ -19,10 +19,19 @@ class TareaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $tareas = Tarea::paginate(10);
 
+        // Obtener el término de búsqueda ingresado por el usuario
+        $searchTerm = $request->input('search');
+
+        // Cargar tareas utilizando la carga ansiosa (eager loading)
+        $tareas = Tarea::where('nombre', 'like', "%$searchTerm%") // Filtrar por nombre de tarea
+            ->orWhere('id', 'like', "%$searchTerm%")  // Filtrar por id de tarea
+            ->paginate(10);
+
+        // Pasar las tareas a la vista
         return view('tarea.index', compact('tareas'))
             ->with('i', (request()->input('page', 1) - 1) * $tareas->perPage());
     }
@@ -37,7 +46,7 @@ class TareaController extends Controller
         $proyectos = Proyecto::all();
         $users = User::all();
         $tarea = new Tarea();
-        return view('tarea.create', compact('tarea','proyectos','users'));
+        return view('tarea.create', compact('tarea', 'proyectos', 'users'));
     }
 
     /**
@@ -52,7 +61,7 @@ class TareaController extends Controller
 
         // $tarea = Tarea::create($request->all());
 
-        $tarea=new Tarea();
+        $tarea = new Tarea();
         $tarea->nombre  = $request->nombre;
         $tarea->fechainicio = $request->fechainicio;
         $tarea->fechafin = $request->fechafin;
@@ -71,7 +80,7 @@ class TareaController extends Controller
     public function show($id)
     {
         $tarea = Tarea::find($id);
-        
+
         return view('tarea.show', compact('tarea'));
     }
 
@@ -86,7 +95,7 @@ class TareaController extends Controller
         $tarea = Tarea::find($id);
         $users = User::all();
         $proyectos = Proyecto::all();
-        return view('tarea.edit', compact('tarea','proyectos','users'));
+        return view('tarea.edit', compact('tarea', 'proyectos', 'users'));
     }
 
     /**

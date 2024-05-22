@@ -17,10 +17,18 @@ class ClienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $clientes = Cliente::paginate(10);
+        // Obtener el término de búsqueda ingresado por el usuario
+        $searchTerm = $request->input('search');
 
+        // Cargar clientes
+        $clientes = Cliente::where('nombre', 'like', "%$searchTerm%") // Filtrar por nombre de cliente
+            ->orWhere('id', 'like', "%$searchTerm%")  // Filtrar por id de cliente
+            ->orWhere('apellido', 'like', "%$searchTerm%")  // Filtrar por apellido de cliente
+            ->paginate(10);
+
+        // Pasar los clientes a la vista
         return view('cliente.index', compact('clientes'))
             ->with('i', (request()->input('page', 1) - 1) * $clientes->perPage());
     }
