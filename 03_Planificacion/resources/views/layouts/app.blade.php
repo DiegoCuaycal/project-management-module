@@ -6,7 +6,6 @@
     <title>@yield('title', 'Tablar')</title>
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -20,7 +19,6 @@
         @include('layouts.footer')
     </div>
     <!-- Scripts -->
-  
     <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>
