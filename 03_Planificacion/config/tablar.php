@@ -42,7 +42,7 @@ return [
     'auth_logo' => [
         'enabled' => true,
         'img' => [
-            'path' => 'assets/Logo.png',
+            'path' => 'assets/Nex.jpg',
             'alt' => 'Auth Logo',
             'class' => 'custom-auth-logo',
             // 'width' => 100,
@@ -152,7 +152,7 @@ return [
 
         [
             'text' => 'Entrevistas',
-            'icon' => 'ti ti-user',
+            'icon' => 'ti  ti-clipboard',
             'url' => '/entrevistas'
         ],
 
@@ -164,13 +164,13 @@ return [
 
         [
             'text' => 'Proyectos',
-            'icon' => 'ti ti-user',
+            'icon' => 'ti ti-folder',
             'url' => '/proyectos'
         ],
 
         [
             'text' => 'Tareas',
-            'icon' => 'ti ti-user',
+            'icon' => 'ti ti-file',
             'url' => '/tareas'
         ],
 
@@ -188,7 +188,7 @@ return [
 
         [
             'text' => 'Roles',
-            'icon' => 'ti ti-user',
+            'icon' => 'ti ti-id-badge',
             'url' => '/roles'
         ],
 
