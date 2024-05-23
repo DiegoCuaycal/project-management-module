@@ -51,14 +51,7 @@
                         </div>
                         <div class="card-body border-bottom py-3">
                             <div class="d-flex">
-                                <div class="text-muted">
-                                    Mostrar
-                                    <div class="mx-2 d-inline-block">
-                                        <input type="text" class="form-control form-control-sm" value="10"
-                                            size="3" aria-label="Invoices count">
-                                    </div>
-                                    entradas
-                                </div>
+                             
                                 <div class="ms-auto text-muted">
                                     <form action="{{ route('proyectos.index') }}" method="GET">
                                         <div class="input-group mb-3">
