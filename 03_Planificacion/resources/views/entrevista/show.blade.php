@@ -10,7 +10,7 @@
                 <div class="col">
                     <!-- Page pre-title -->
                     <div class="page-pretitle">
-                        View
+                        Ver
                     </div>
                     <h2 class="page-title">
                         {{ __('Entrevista ') }}
@@ -28,7 +28,7 @@
                                 <line x1="12" y1="5" x2="12" y2="19" />
                                 <line x1="5" y1="12" x2="19" y2="12" />
                             </svg>
-                            Entrevista List
+                            Lista Entrevista 
                         </a>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                                     <input type="text" id="cliente" class="form-control" value="{{ $entrevista->cliente ? $entrevista->cliente->nombre . ' ' . $entrevista->cliente->apellido : 'No asignado' }}" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <a href="{{ route('entrevistas.index') }}" class="btn btn-secondary">Back</a>
+                                    <a href="{{ route('entrevistas.index') }}" class="btn btn-secondary">Regresar</a>
                                 </div>
                             </form>
                         </div>

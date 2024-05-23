@@ -12,7 +12,7 @@
                 <div class="col">
                     <!-- Page pre-title -->
                     <div class="page-pretitle">
-                        List
+                        Lista
                     </div>
                     <h2 class="page-title">
                         {{ __('Cliente ') }}
@@ -30,7 +30,7 @@
                                 <line x1="12" y1="5" x2="12" y2="19" />
                                 <line x1="5" y1="12" x2="19" y2="12" />
                             </svg>
-                            Create Cliente
+                            Crear Cliente
                         </a>
                     </div>
                 </div>
@@ -52,12 +52,12 @@
                         <div class="card-body border-bottom py-3">
                             <div class="d-flex">
                                 <div class="text-muted">
-                                    Show
+                                    Ver
                                     <div class="mx-2 d-inline-block">
                                         <input type="text" class="form-control form-control-sm" value="10"
                                             size="3" aria-label="Invoices count">
                                     </div>
-                                    entries
+                                    entrdas
                                 </div>
 
                                 <div class="ms-auto text-muted">
@@ -94,7 +94,7 @@
                                         <th>Nombre</th>
                                         <th>Apellido</th>
                                         <th>Telefono</th>
-                                        <th>Email</th>
+                                        <th>Correo</th>
 
                                         <th class="w-1"></th>
                                     </tr>
@@ -117,16 +117,16 @@
                                                     <div class="dropdown">
                                                         <button class="btn dropdown-toggle align-text-top"
                                                             data-bs-toggle="dropdown">
-                                                            Actions
+                                                            Acciones
                                                         </button>
                                                         <div class="dropdown-menu dropdown-menu-end">
                                                             <a class="dropdown-item"
                                                                 href="{{ route('clientes.show', $cliente->id) }}">
-                                                                View
+                                                                Ver
                                                             </a>
                                                             <a class="dropdown-item"
                                                                 href="{{ route('clientes.edit', $cliente->id) }}">
-                                                                Edit
+                                                                Editar
                                                             </a>
                                                             <form action="{{ route('clientes.destroy', $cliente->id) }}"
                                                                 method="POST">
@@ -136,7 +136,7 @@
                                                                     onclick="if(!confirm('Do you Want to Proceed?')){return false;}"
                                                                     class="dropdown-item text-red"><i
                                                                         class="fa fa-fw fa-trash"></i>
-                                                                    Delete
+                                                                    Borrar
                                                                 </button>
                                                             </form>
                                                         </div>
@@ -145,7 +145,7 @@
                                             </td>
                                         </tr>
                                     @empty
-                                        <td>No Data Found</td>
+                                        <td>Datos no encontrados</td>
                                     @endforelse
                                 </tbody>
 

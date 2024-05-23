@@ -6,7 +6,6 @@
             'placeholder' => 'Nombre',
         ]) }}
         {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
-        <small class="form-hint">tarea <b>nombre</b> instruction.</small>
     </div>
 </div>
 <div class="form-group mb-3">
@@ -17,7 +16,6 @@
             'placeholder' => 'Fechainicio',
         ]) }}
         {!! $errors->first('fechainicio', '<div class="invalid-feedback">:message</div>') !!}
-        <small class="form-hint">tarea <b>fechainicio</b> instruction.</small>
     </div>
 </div>
 <div class="form-group mb-3">
@@ -28,7 +26,6 @@
             'placeholder' => 'Fechafin',
         ]) }}
         {!! $errors->first('fechafin', '<div class="invalid-feedback">:message</div>') !!}
-        <small class="form-hint">tarea <b>fechafin</b> instruction.</small>
     </div>
 </div>
 <div class="form-group mb-3">
@@ -39,7 +36,6 @@
             'placeholder' => 'Avance',
         ]) }}
         {!! $errors->first('avance', '<div class="invalid-feedback">:message</div>') !!}
-        <small class="form-hint">tarea <b>avance</b> instruction.</small>
     </div>
 </div>
 <div class="form-group mb-3">
@@ -54,7 +50,6 @@
             ],
         ) }}
         {!! $errors->first('proyecto_id', '<div class="invalid-feedback">:message</div>') !!}
-        <small class="form-hint">tarea <b>proyecto_id</b> instruction.</small>
     </div>
 </div>
 <div class="form-group mb-3">

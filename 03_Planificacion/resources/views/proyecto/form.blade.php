@@ -6,7 +6,6 @@
             'placeholder' => 'Nombre del Proyecto',
         ]) }}
         {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
-        <small class="form-hint">proyecto <b>nombre</b> instruction.</small>
     </div>
 </div>
 <div class="form-group mb-3">
@@ -17,7 +16,6 @@
             'placeholder' => 'Estado',
         ]) }}
         {!! $errors->first('estado', '<div class="invalid-feedback">:message</div>') !!}
-        <small class="form-hint">proyecto <b>estado</b> instruction.</small>
     </div>
 </div>
 <div class="form-group mb-3">
@@ -28,7 +26,6 @@
             'placeholder' => 'Fechainicio',
         ]) }}
         {!! $errors->first('fechaInicio', '<div class="invalid-feedback">:message</div>') !!}
-        <small class="form-hint">proyecto <b>fechaInicio</b> instruction.</small>
     </div>
 </div>
 <div class="form-group mb-3">
@@ -39,7 +36,6 @@
             'placeholder' => 'Fechafin',
         ]) }}
         {!! $errors->first('fechaFin', '<div class="invalid-feedback">:message</div>') !!}
-        <small class="form-hint">proyecto <b>fechaFin</b> instruction.</small>
     </div>
 </div>
 <div class="form-group mb-3">
@@ -51,7 +47,6 @@
             'rows' => 5,
         ]) }}
         {!! $errors->first('requisitosFuncionales', '<div class="invalid-feedback">:message</div>') !!}
-        <small class="form-hint">proyecto <b>requisitosFuncionales</b> instruction.</small>
     </div>
 </div>
 
@@ -64,7 +59,6 @@
             'rows' => 5,
         ]) }}
         {!! $errors->first('requisitosNoFuncionales', '<div class="invalid-feedback">:message</div>') !!}
-        <small class="form-hint">proyecto <b>requisitosNoFuncionales</b> instruction.</small>
     </div>
 </div>
 <div class="form-group mb-3">
@@ -75,7 +69,7 @@
             'placeholder' => 'Avance',
         ]) }}
         {!! $errors->first('avance', '<div class="invalid-feedback">:message</div>') !!}
-        <small class="form-hint">proyecto <b>avance</b> instruction.</small>
+        <small class="form-hint">Ingrese un porcentaje de avance.</small>
     </div>
 </div>
 <div class="form-group mb-3">
@@ -100,7 +94,7 @@
 
             <a href="{{ route('proyectos.index') }}" class="btn btn-danger">Cancel</a>
 
-            <button type="submit" class="btn btn-primary ms-auto ajax-submit">Submit</button>
+            <button type="submit" class="btn btn-primary ms-auto ajax-submit">Guardar</button>
         </div>
     </div>
 </div>

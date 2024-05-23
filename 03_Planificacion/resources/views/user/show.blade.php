@@ -10,7 +10,7 @@
             <div class="col">
                 <!-- Page pre-title -->
                 <div class="page-pretitle">
-                    View
+                    Ver
                 </div>
                 <h2 class="page-title">
                     {{ __('User ') }}
@@ -28,7 +28,7 @@
                             <line x1="12" y1="5" x2="12" y2="19" />
                             <line x1="5" y1="12" x2="19" y2="12" />
                         </svg>
-                        User List
+                        Lista Usuario
                     </a>
                 </div>
             </div>
@@ -45,16 +45,16 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">User Details</h3>
+                        <h3 class="card-title">Detalles Usuario</h3>
                     </div>
                     <div class="card-body">
                         <form>
                             <div class="form-group">
-                                <label for="name">Name:</label>
+                                <label for="name">Nombre:</label>
                                 <input type="text" id="name" class="form-control" value="{{ $user->name }}" readonly>
                             </div>
                             <div class="form-group">
-                                <label for="email">Email:</label>
+                                <label for="email">Correo:</label>
                                 <input type="email" id="email" class="form-control" value="{{ $user->email }}" readonly>
                             </div>
                             <div class="form-group">
@@ -64,7 +64,7 @@
                                     readonly>
                             </div>
                             <div class="form-group">
-                                <a href="{{ route('users.index') }}" class="btn btn-secondary">Back</a>
+                                <a href="{{ route('users.index') }}" class="btn btn-secondary">Regresar</a>
                             </div>
                         </form>
                     </div>

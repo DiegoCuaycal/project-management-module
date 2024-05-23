@@ -12,7 +12,7 @@
                 <div class="col">
                     <!-- Page pre-title -->
                     <div class="page-pretitle">
-                        List
+                        Lista
                     </div>
                     <h2 class="page-title">
                         {{ __('User ') }}
@@ -30,7 +30,7 @@
                                 <line x1="12" y1="5" x2="12" y2="19" />
                                 <line x1="5" y1="12" x2="19" y2="12" />
                             </svg>
-                            Create User
+                            Crear Usuario
                         </a>
                     </div>
                 </div>
@@ -52,12 +52,12 @@
                         <div class="card-body border-bottom py-3">
                             <div class="d-flex">
                                 <div class="text-muted">
-                                    Show
+                                    Mostrar
                                     <div class="mx-2 d-inline-block">
                                         <input type="text" class="form-control form-control-sm" value="10"
                                             size="3" aria-label="Invoices count">
                                     </div>
-                                    entries
+                                    entradas
                                 </div>
                                 
                                 <form action="{{ route('users.index') }}" method="GET" class="ms-auto text-muted">
@@ -126,11 +126,11 @@
                                                         <div class="dropdown-menu dropdown-menu-end">
                                                             <a class="dropdown-item"
                                                                 href="{{ route('users.show', $user->id) }}">
-                                                                View
+                                                                Ver
                                                             </a>
                                                             <a class="dropdown-item"
                                                                 href="{{ route('users.edit', $user->id) }}">
-                                                                Edit
+                                                                Editar
                                                             </a>
                                                             <form action="{{ route('users.destroy', $user->id) }}"
                                                                 method="POST">
@@ -140,7 +140,7 @@
                                                                     onclick="if(!confirm('Do you Want to Proceed?')){return false;}"
                                                                     class="dropdown-item text-red"><i
                                                                         class="fa fa-fw fa-trash"></i>
-                                                                    Delete
+                                                                    Borrar
                                                                 </button>
                                                             </form>
                                                         </div>
@@ -149,7 +149,7 @@
                                             </td>
                                         </tr>
                                     @empty
-                                        <td>No Data Found</td>
+                                        <td>Datos no encontrados</td>
                                     @endforelse
                                 </tbody>
 

@@ -7,7 +7,6 @@
             'rows' => 4,
         ]) }}
         {!! $errors->first('registroDatos', '<div class="invalid-feedback">:message</div>') !!}
-        <small class="form-hint">entrevista <b>registroDatos</b> instruction.</small>
     </div>
 </div>
 <div class="form-group mb-3">
@@ -18,7 +17,6 @@
             'placeholder' => 'Fecha',
         ]) }}
         {!! $errors->first('fecha', '<div class="invalid-feedback">:message</div>') !!}
-        <small class="form-hint">entrevista <b>fecha</b> instruction.</small>
     </div>
 </div>
 <div class="form-group mb-3">
@@ -33,8 +31,8 @@
 <div class="form-footer">
     <div class="text-end">
         <div class="d-flex">
-            <a href="{{ route('entrevistas.index') }}" class="btn btn-danger">Cancel</a>
-            <button type="submit" class="btn btn-primary ms-auto ajax-submit">Submit</button>
+            <a href="{{ route('entrevistas.index') }}" class="btn btn-danger">Cancelar</a>
+            <button type="submit" class="btn btn-primary ms-auto ajax-submit">Guardar</button>
         </div>
     </div>
 </div>

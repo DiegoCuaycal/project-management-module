@@ -10,7 +10,7 @@
                 <div class="col">
                     <!-- Page pre-title -->
                     <div class="page-pretitle">
-                        View
+                        Ver
                     </div>
                     <h2 class="page-title">
                         {{ __('Proyecto ') }}
@@ -28,7 +28,7 @@
                                 <line x1="12" y1="5" x2="12" y2="19"/>
                                 <line x1="5" y1="12" x2="19" y2="12"/>
                             </svg>
-                            Proyecto List
+                            Lista Proyecto 
                         </a>
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Proyecto Details</h3>
+                            <h3 class="card-title">Detalles Proyecto </h3>
                         </div>
                         <div class="card-body">
                             <form>
@@ -82,7 +82,7 @@
                                     <input type="text" id="cliente_id" class="form-control" value="{{ $proyecto->cliente_id }}" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <a href="{{ route('proyectos.index') }}" class="btn btn-secondary">Back</a>
+                                    <a href="{{ route('proyectos.index') }}" class="btn btn-secondary">Regresar</a>
                                 </div>
                             </form>
                         </div>

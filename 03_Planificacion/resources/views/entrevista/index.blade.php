@@ -12,7 +12,7 @@
                 <div class="col">
                     <!-- Page pre-title -->
                     <div class="page-pretitle">
-                        List
+                        Listar
                     </div>
                     <h2 class="page-title">
                         {{ __('Entrevista ') }}
@@ -30,7 +30,7 @@
                                 <line x1="12" y1="5" x2="12" y2="19" />
                                 <line x1="5" y1="12" x2="19" y2="12" />
                             </svg>
-                            Create Entrevista
+                            Crear Entrevista
                         </a>
                     </div>
                 </div>
@@ -52,12 +52,12 @@
                         <div class="card-body border-bottom py-3">
                             <div class="d-flex">
                                 <div class="text-muted">
-                                    Show
+                                    Mostrar
                                     <div class="mx-2 d-inline-block">
                                         <input type="text" class="form-control form-control-sm" value="10"
                                             size="3" aria-label="Invoices count">
                                     </div>
-                                    entries
+                                    entradas
                                 </div>
                                 <div class="ms-auto text-muted">
                                     <form action="{{ route('entrevistas.index') }}" method="GET">
@@ -118,16 +118,16 @@
                                                     <div class="dropdown">
                                                         <button class="btn dropdown-toggle align-text-top"
                                                             data-bs-toggle="dropdown">
-                                                            Actions
+                                                            Acciones
                                                         </button>
                                                         <div class="dropdown-menu dropdown-menu-end">
                                                             <a class="dropdown-item"
                                                                 href="{{ route('entrevistas.show', $entrevista->id) }}">
-                                                                View
+                                                                Ver
                                                             </a>
                                                             <a class="dropdown-item"
                                                                 href="{{ route('entrevistas.edit', $entrevista->id) }}">
-                                                                Edit
+                                                                Editar
                                                             </a>
                                                             <form
                                                                 action="{{ route('entrevistas.destroy', $entrevista->id) }}"
@@ -138,7 +138,7 @@
                                                                     onclick="if(!confirm('Do you Want to Proceed?')){return false;}"
                                                                     class="dropdown-item text-red"><i
                                                                         class="fa fa-fw fa-trash"></i>
-                                                                    Delete
+                                                                    Borrar
                                                                 </button>
                                                             </form>
                                                         </div>
@@ -147,7 +147,7 @@
                                             </td>
                                         </tr>
                                     @empty
-                                        <td>No Data Found</td>
+                                        <td>Datos no encontrados</td>
                                     @endforelse
                                 </tbody>
 

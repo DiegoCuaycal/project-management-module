@@ -13,7 +13,7 @@
                         <td>{{ $user->name }}</td>
                     </tr>
                     <tr>
-                        <th>Email</th>
+                        <th>Correo</th>
                         <td>{{ $user->email }}</td>
                     </tr>
                 </table>
