@@ -20,6 +20,32 @@
         <small class="form-hint">user <b>email</b> instruction.</small>
     </div>
 </div>
+
+<!-- Nueva sección para la contraseña -->
+<div class="form-group mb-3">
+    <label class="form-label">{{ Form::label('password', 'Nueva Contraseña') }}</label>
+    <div>
+        {{ Form::password('password', [
+            'class' => 'form-control' . ($errors->has('password') ? ' is-invalid' : ''),
+            'placeholder' => 'Nueva Contraseña',
+        ]) }}
+        {!! $errors->first('password', '<div class="invalid-feedback">:message</div>') !!}
+        <small class="form-hint">Ingrese una nueva contraseña (opcional).</small>
+    </div>
+</div>
+
+<div class="form-group mb-3">
+    <label class="form-label">{{ Form::label('password_confirmation', 'Confirmar Nueva Contraseña') }}</label>
+    <div>
+        {{ Form::password('password_confirmation', [
+            'class' => 'form-control' . ($errors->has('password_confirmation') ? ' is-invalid' : ''),
+            'placeholder' => 'Confirmar Nueva Contraseña',
+        ]) }}
+        {!! $errors->first('password_confirmation', '<div class="invalid-feedback">:message</div>') !!}
+    </div>
+</div>
+<!-- Fin de la nueva sección para la contraseña -->
+
 <div class="form-group mb-3">
     <label class="form-label">{{ Form::label('roles', 'Roles') }}</label>
     <div>
@@ -41,3 +67,4 @@
         </div>
     </div>
 </div>
+

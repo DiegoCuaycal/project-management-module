@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+
 use App\Http\Requests\StoreUser;
 use App\Models\Role;
 use App\Models\User;
@@ -16,7 +17,7 @@ class UserController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-    */
+     */
     /*
     public function index()
     {
@@ -32,17 +33,17 @@ class UserController extends Controller
     {
         // Obtener el término de búsqueda ingresado por el usuario
         $searchTerm = $request->input('search');
-    
+
         // Cargar usuarios con sus roles utilizando la carga ansiosa (eager loading)
         $users = User::with('roles')
             ->where('name', 'like', "%$searchTerm%") //Filtrar por nombre
             ->orWhere('id', 'like', "%$searchTerm%")  // Filtrar por id
             ->paginate(10);
-    
+
         // Pasar los usuarios a la vista
         return view('user.index', compact('users'));
     }
-    
+
 
 
     /**
@@ -69,9 +70,9 @@ class UserController extends Controller
         // $user = User::create($request->all());
 
         $user = new User();
-        $user->name  = $request->name;
-        $user->email  = $request->email;
-        $user->password  = $request->name;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->name;
         $user->save();
 
         // Asociar los roles seleccionados
@@ -117,8 +118,22 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        // Validar la entrada del formulario
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
+            'password' => 'nullable|string|min:8|confirmed',
+        ]);
+
+        // Actualizar el nombre y el correo electrónico del usuario
         $user->name = $request->name;
         $user->email = $request->email;
+
+        // Actualizar la contraseña solo si se proporciona
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->password);
+        }
+
         $user->save();
 
         // Actualizar los roles del usuario
@@ -127,6 +142,7 @@ class UserController extends Controller
         return redirect()->route('users.index')
             ->with('success', 'User updated successfully');
     }
+
 
     /**
      * @param int $id
