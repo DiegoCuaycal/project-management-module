@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="NexusOficial.png" alt="Logo de Nexus" width="400"/>
+</p>
+
 # 🗂️ Módulo de Manejo de Proyectos - Nexus
 
 Sistema web desarrollado para gestionar proyectos de software en una empresa tecnológica. El módulo permite administrar entrevistas con clientes, aprobar proyectos, asignar tareas a equipos de trabajo y dar seguimiento al estado de avance de cada proyecto de forma estructurada.
